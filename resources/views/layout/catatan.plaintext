@@ -1,0 +1,30 @@
+- @yield('namaVariabel') untuk memberi tanda atau menamai untuk menjadi seperti variabel agar value dapat diganti
+untuk memangilnya kita perlu
+- @section ('namaVariabel','value yang mau diganti')
+
+
+
+- hasMany('app\models\kontak', 'id') di parent
+- belongsTo('app\models\siswa', 'id_siswa) di child
+
+- php artisan make:controller dashnoardController --resource
+*jika menambah --resource maka otomatis create function default*
+- php artisan route:list | melakukan cek route yang terdaftar
+
+* compact('namaVariabel yang akan dikirim');
+* siswa::all()->count()  | all() digunakan untuk select seluruh data di database
+* count() menghitung total data dari Database
+
+
+* this->validate($request,[]);
+validate adalah built in function dari laravel
+$request adalah value dari form yang dikirim ke controller
+$errors variabel dari php untuk menangkap error yang di dapat dari request
+
+
+* @csrf 
+ => ditambahkan ke codingan jika berhubungan dengan database | seperti ingin input data ke database
+
+ * middleware  = - Per route
+                 - Route middleware Group
+                 - middleware controller __construct()
