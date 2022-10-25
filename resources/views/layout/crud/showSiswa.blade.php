@@ -47,7 +47,25 @@
  </div>   
       <div class="card shadow mb-4">
         <div class="card-header">
-          <h6 class="m-0 font-weight-bold text-primary" ><i class="fas fa-tasks"></i> Projek Siswa</h6>
+          @if ($project->isEmpty())
+          <h6>Siswa Belum Memiliki Project</h6>
+      
+          @else
+          
+              @foreach ($project as $item)
+                  <div class="card">
+                      <div class="card-header">
+                      <strong>{{ $item->nama_project }}</strong>
+                      </div>
+                      <div class="card-body">
+                      <p>{{ $item->deskripsi }}</p>
+                      </div>
+                      
+                  </div>
+                  <br>
+          
+              @endforeach
+          @endif
         </div>
          <div class="card-body">
           

@@ -48,8 +48,12 @@
                         <td>{{ $item -> alamat }}</td>
                         <td>
                           <a href="{{ route('mastersiswa.show', $item -> id) }}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
+                          @if(auth()->user()->role == 'admin')
+                         
                           <a href="{{ route('mastersiswa.edit', $item -> id) }}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+
                           <a href="{{ route('mastersiswa.hapus', $item -> id) }}" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                          @endif
                           
                         </td>
                       </tr>

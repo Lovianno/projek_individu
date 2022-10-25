@@ -15,8 +15,10 @@
     <div class="col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                
+              @if(auth()->user()->role == 'admin')
+              <a href="{{ route('masterjk.create') }}" class="btn btn-success">Tambah Data Jenis Kontak</a>
                 {{-- <a href="{{ route('mastersiswa.create') }}" class="btn btn-success">Tambah Data</a> --}}
+                @endif
             </div>
             <div class="card-body">
                 <table class="table">
@@ -24,6 +26,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col" >Jenis Kontak</th>
+                        <th scope="col" >Action</th>
                         
                       </tr>
                     </thead>
@@ -33,6 +36,9 @@
                         <th scope="row">{{ ++$i }}</th>
                         {{-- <th scope="row">{{ $loop -> iteration }}</th> --}}
                         <td>{{ $item ->jenis_kontak }}</td>
+                        <td><a href="{{ route('masterjk.edit', $item->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                          <a href="{{ route('masterjk.hapus', $item->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
+                       
                       </tr>
                       @endforeach
                     </tbody>

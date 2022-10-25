@@ -17,7 +17,7 @@ class siswaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         
         // $this->middleware('admin')->only('index');
         $this->middleware('admin')->except('index','show');
@@ -100,12 +100,12 @@ class siswaController extends Controller
      */
     public function show($id)
     {
-
+        $project=siswa::find($id)->project()->get();
         $siswa=Siswa::find($id);   
         $kontak = $siswa->kontak()->get();
         // return($kontak); 
         // menampilkan data JSON
-        return view('layout.crud.showSiswa', compact('siswa', 'kontak'));
+        return view('layout.crud.showSiswa', compact('siswa', 'kontak','project'));
     }
 
     /**
